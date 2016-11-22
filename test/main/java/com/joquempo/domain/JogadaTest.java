@@ -1,7 +1,8 @@
 package main.java.com.joquempo.domain;
 
+import com.joquempo.domain.Jogada;
+import com.joquempo.domain.JogadaComparator;
 import org.junit.Test;
-
 import static org.junit.Assert.*;
 
 
@@ -13,77 +14,77 @@ public class JogadaTest {
         assertEquals(expected, jogadaComparator.compare(usuario, maquina));
     }
 
-    // Pedra
+    // PEDRA
     @Test
     public void testPedras() {
-        Jogada usuario = Jogada.Pedra;
-        Jogada maquina = Jogada.Pedra;
+        Jogada usuario = Jogada.PEDRA;
+        Jogada maquina = Jogada.PEDRA;
 
         verify(0, usuario, maquina);
     }
 
     @Test
     public void testPedraVsPapel() {
-        Jogada usuario = Jogada.Pedra;
-        Jogada maquina = Jogada.Papel;
+        Jogada usuario = Jogada.PEDRA;
+        Jogada maquina = Jogada.PAPEL;
 
         verify(-1, usuario, maquina);
     }
 
     @Test
     public void testPedraVsTesoura() {
-        Jogada usuario = Jogada.Pedra;
-        Jogada maquina = Jogada.Tesoura;
+        Jogada usuario = Jogada.PEDRA;
+        Jogada maquina = Jogada.TESOURA;
 
         verify(1, usuario, maquina);
     }
 
-    // Papel
+    // PAPEL
     @Test
     public void testPapeis() {
-        Jogada usuario = Jogada.Papel;
-        Jogada maquina = Jogada.Papel;
+        Jogada usuario = Jogada.PAPEL;
+        Jogada maquina = Jogada.PAPEL;
 
         verify(0, usuario, maquina);
     }
 
     @Test
     public void testPapelVsTesoura() {
-        Jogada usuario = Jogada.Papel;
-        Jogada maquina = Jogada.Tesoura;
+        Jogada usuario = Jogada.PAPEL;
+        Jogada maquina = Jogada.TESOURA;
 
         verify(-1, usuario, maquina);
     }
 
     @Test
     public void testPapelVsPedra() {
-        Jogada usuario = Jogada.Papel;
-        Jogada maquina = Jogada.Pedra;
+        Jogada usuario = Jogada.PAPEL;
+        Jogada maquina = Jogada.PEDRA;
 
         verify(1, usuario, maquina);
     }
 
-    // Tesoura
+    // TESOURA
     @Test
     public void testTesouras() {
-        Jogada usuario = Jogada.Tesoura;
-        Jogada maquina = Jogada.Tesoura;
+        Jogada usuario = Jogada.TESOURA;
+        Jogada maquina = Jogada.TESOURA;
 
         verify(0, usuario, maquina);
     }
 
     @Test
     public void testTesouraVsPedra() {
-        Jogada usuario = Jogada.Tesoura;
-        Jogada maquina = Jogada.Pedra;
+        Jogada usuario = Jogada.TESOURA;
+        Jogada maquina = Jogada.PEDRA;
 
         verify(-1, usuario, maquina);
     }
 
     @Test
     public void testTesouraVsPapel() {
-        Jogada usuario = Jogada.Tesoura;
-        Jogada maquina = Jogada.Papel;
+        Jogada usuario = Jogada.TESOURA;
+        Jogada maquina = Jogada.PAPEL;
 
         verify(1, usuario, maquina);
     }
@@ -91,28 +92,28 @@ public class JogadaTest {
     // Seleciona Vencedor
     @Test
     public void testPedraWinner() {
-        Jogada maquinaChoice = Jogada.Pedra;
+        Jogada maquinaChoice = Jogada.PEDRA;
 
         JogadaComparator jogadaComparator = new JogadaComparator();
 
-        assertEquals(Jogada.Papel, jogadaComparator.getWinner(maquinaChoice));
+        assertEquals(Jogada.PAPEL, jogadaComparator.getWinner(maquinaChoice));
     }
 
     @Test
     public void testTesouraWinner() {
-        Jogada maquinaChoice = Jogada.Tesoura;
+        Jogada maquinaChoice = Jogada.TESOURA;
 
         JogadaComparator jogadaComparator = new JogadaComparator();
 
-        assertEquals(Jogada.Pedra, jogadaComparator.getWinner(maquinaChoice));
+        assertEquals(Jogada.PEDRA, jogadaComparator.getWinner(maquinaChoice));
     }
 
     @Test
     public void testPapelWinner() {
-        Jogada maquinaChoice = Jogada.Papel;
+        Jogada maquinaChoice = Jogada.PAPEL;
 
         JogadaComparator jogadaComparator = new JogadaComparator();
 
-        assertEquals(Jogada.Tesoura, jogadaComparator.getWinner(maquinaChoice));
+        assertEquals(Jogada.TESOURA, jogadaComparator.getWinner(maquinaChoice));
     }
 }

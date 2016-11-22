@@ -1,4 +1,4 @@
-package main.java.com.joquempo.domain;
+package com.joquempo.domain;
 
 import java.util.Comparator;
 
@@ -10,17 +10,17 @@ public class JogadaComparator implements Comparator<Jogada> {
     @Override
     public int compare(Jogada o1, Jogada o2) {
 
-        if (o1.equals(Jogada.Pedra) && o2.equals(Jogada.Papel)) return -1;
+        if (o1.equals(Jogada.PEDRA) && o2.equals(Jogada.PAPEL)) return -1;
 
-        if (o1.equals(Jogada.Pedra) && o2.equals(Jogada.Tesoura)) return 1;
+        if (o1.equals(Jogada.PEDRA) && o2.equals(Jogada.TESOURA)) return 1;
 
-        if (o1.equals(Jogada.Papel) && o2.equals(Jogada.Tesoura)) return -1;
+        if (o1.equals(Jogada.PAPEL) && o2.equals(Jogada.TESOURA)) return -1;
 
-        if (o1.equals(Jogada.Papel) && o2.equals(Jogada.Pedra)) return 1;
+        if (o1.equals(Jogada.PAPEL) && o2.equals(Jogada.PEDRA)) return 1;
 
-        if (o1.equals(Jogada.Tesoura) && o2.equals(Jogada.Pedra)) return -1;
+        if (o1.equals(Jogada.TESOURA) && o2.equals(Jogada.PEDRA)) return -1;
 
-        if (o1.equals(Jogada.Tesoura) && o2.equals(Jogada.Papel)) return 1;
+        if (o1.equals(Jogada.TESOURA) && o2.equals(Jogada.PAPEL)) return 1;
 
         return 0;
     }
