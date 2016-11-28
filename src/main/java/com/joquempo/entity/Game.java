@@ -1,5 +1,6 @@
 package com.joquempo.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.joquempo.domain.Jogada;
 
 import javax.persistence.*;
@@ -16,21 +17,35 @@ public class Game {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "id_user", referencedColumnName = "id")
+    private User user;
+
     @NotNull
-    @Column
     private Integer idMoveUser;
 
     @NotNull
-    @Column
     private Integer idMoveMachine;
 
     @Transient
+    @JsonIgnore
     private Jogada userChoice;
 
     @Transient
+    @JsonIgnore
     private Jogada machineChoice;
 
     public Game() {
+    }
+
+    public Game(User user, Integer idMoveUser, Integer idMoveMachine) {
+        this.user = user;
+        this.idMoveUser = idMoveUser;
+        this.idMoveMachine = idMoveMachine;
+    }
+
+    public Game(User user) {
+        this.user = user;
     }
 
     public Long getId() {
@@ -39,6 +54,14 @@ public class Game {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public Integer getIdMoveUser() {
