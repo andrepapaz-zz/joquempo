@@ -11,5 +11,8 @@ import java.util.List;
 public interface GameRepository extends CrudRepository<Game, Integer> {
     List<Game> findByUserId(Long userId);
 
-    Long countByIdMoveUser(Integer pedra);
+    Long countByIdMoveUser(Integer jogada);
+
+    //Long countByIdMoveUserAndIdUser(Integer jogada, Long userId);
+
 }

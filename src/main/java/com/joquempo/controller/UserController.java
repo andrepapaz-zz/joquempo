@@ -22,16 +22,6 @@ public class UserController {
     public User getUserByName(@PathVariable String name) {
         User byName = userService.findByName(name);
 
-        if (byName == null) {
-            User newUser = new User();
-
-            newUser.setName(name);
-
-            User createdUser = userService.save(newUser);
-
-            byName = createdUser;
-        }
-
         return byName;
     }
 }

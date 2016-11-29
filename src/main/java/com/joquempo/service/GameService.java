@@ -1,6 +1,7 @@
 package com.joquempo.service;
 
 import com.joquempo.domain.Jogada;
+import com.joquempo.domain.MachineChoice;
 import com.joquempo.entity.Game;
 import com.joquempo.repository.GameRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,5 +37,18 @@ public class GameService {
 
     public Long countAllStone() {
         return gameRepository.countByIdMoveUser(Jogada.PEDRA.getId());
+    }
+
+    public MachineChoice getMachineChoice() {
+        Long qtdPedras = gameRepository.countByIdMoveUser(Jogada.PEDRA.getId());
+        Long qtdPapeis = gameRepository.countByIdMoveUser(Jogada.PAPEL.getId());
+        Long qtdTesouras = gameRepository.countByIdMoveUser(Jogada.TESOURA.getId());
+
+        MachineChoice machineChoice = new MachineChoice();
+
+        machineChoice.setChoice(1);
+
+        return machineChoice;
+
     }
 }

@@ -17,6 +17,16 @@ public class UserService {
     public User findByName(String name) {
         User byName = userRepository.findByName(name);
 
+        if (byName == null) {
+            User newUser = new User();
+
+            newUser.setName(name);
+
+            User createdUser = this.save(newUser);
+
+            byName = createdUser;
+        }
+
         return byName;
     }
 

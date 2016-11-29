@@ -1,5 +1,6 @@
 package com.joquempo.controller;
 
+import com.joquempo.domain.MachineChoice;
 import com.joquempo.entity.Game;
 import com.joquempo.service.GameService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +27,13 @@ public class GameController {
         List<Game> games = gameService.listAll();
 
         return games;
+    }
+
+    @RequestMapping(value = "/machinechoice", method = RequestMethod.GET)
+    public MachineChoice getMachineChoice() {
+        MachineChoice machineChoice = gameService.getMachineChoice();
+
+        return machineChoice;
     }
 
     @RequestMapping(value = "/countStone", method = RequestMethod.GET)
