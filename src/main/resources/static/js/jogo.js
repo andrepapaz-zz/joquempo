@@ -8,26 +8,35 @@ jogoModel.controller("jogoController", function ($scope, $http) {
         $http.get(urlJogo + '/machinechoice').success(function(data) {
             $scope.machinechoice = data;
         }).error(function(erro) {
+            $scope.message = erro;
             $('#myModal').modal('show');
         });
     }
 
 	$scope.showImgMachine = false;
-	$scope.machinechoice = {choice:1};
 
 	$scope.sendChoice = function(choiceUser) {
-		$scope.showImgMachine = true;
-        $scope.machinechoice = {choice:1};
-		$('#myModal').modal('show');
+
+        $scope.showImgMachine = true;
+
+        var game = {
+            idMoveUser: choiceUser,
+            idMoveMachine: $scope.machinechoice.choice
+        };
+
+        $http.post(urlJogo, game).success(function (data) {
+            $scope.message = data.result;
+            $('#myModal').modal('show');
+        }).error(function (erro) {
+            $scope.errorMessage = erro;
+            $('#myModal').modal('show');
+        })
 	}
 
     $scope.reload = function() {
         $scope.showImgMachine = false;
-        $scope.machinechoice = {choice:0};
+        $scope.buscaMachineChoice();
     }
 
-	$scope.result = {
-		winner: 0,
-		message: "Empate, que triste!"
-	}
+    $scope.buscaMachineChoice();
 });

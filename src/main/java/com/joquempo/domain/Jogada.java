@@ -29,4 +29,13 @@ public enum Jogada {
     public void setNome(String nome) {
         this.nome = nome;
     }
+
+    public static Jogada getValue(int value) {
+        for(Jogada e: Jogada.values()) {
+            if(e.id == value) {
+                return e;
+            }
+        }
+        return null;// not found
+    }
 }
