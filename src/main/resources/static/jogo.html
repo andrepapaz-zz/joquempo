@@ -37,6 +37,62 @@
 <body class="document" ng-controller="jogoController">
     <div class="container">
         <div class="jumbotron">
+            <div class="row">
+                <div class="col-sm-11">
+                    <div class="row">
+                        <div class="col-sm-4 alert alert-success" role="alert">
+                            <div class="col-sm-10">
+                                Vitórias
+                            </div>
+                            <div class="col-sm-2">
+                                <span class="label label-success">{{vitorias}}</span>
+                            </div>
+                        </div>
+                        <div class="col-sm-4 alert alert-danger" role="alert">
+                            <div class="col-sm-10">
+                                Derrotas
+                            </div>
+                            <div class="col-sm-2">
+                                <span class="label label-danger">{{derrotas}}</span>
+                            </div>
+                        </div>
+                        <div class="col-sm-4 alert alert-warning" role="alert">
+                            <div class="col-sm-10">
+                                Empates
+                            </div>
+                            <div class="col-sm-2">
+                                <span class="label label-warning">{{empates}}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-success progress-bar-striped active" ng-style="{width : ( getPercentage(1) + '%' ) }">
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-danger progress-bar-striped active" ng-style="{width : ( getPercentage(-1) + '%' ) }">
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-warning progress-bar-striped active" ng-style="{width : ( getPercentage(0) + '%' ) }">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-1">
+                    <a href="login.html" role="button" class="btn btn-default">Voltar</a>
+                </div>
+            </div>
             <div class="panel panel-primary">
                 <div class="panel-body">
                     <h3>Máquina</h3>

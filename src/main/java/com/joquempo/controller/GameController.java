@@ -36,11 +36,7 @@ public class GameController {
 
         game.setUser(user);
 
-        Result result = new Result();
-
-        result.setResult(gameService.save(game));
-
-        return result;
+        return gameService.save(game);
     }
 
 }
